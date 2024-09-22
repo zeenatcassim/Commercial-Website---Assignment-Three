@@ -1,0 +1,70 @@
+
+h1{
+    padding-left: 250px;
+}
+
+.main{
+    display: inline;
+}
+
+/* Sidebar
+*/
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    transform: translate(-100%);
+    background-color: aliceblue;
+}
+
+.show-sidebar{
+    transform: translate(0);
+}
+
+.open-btn{
+    position: fixed;
+    margin: 25px;
+    top: 0;
+    right: 0;
+}
+
+.close-btn{
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 10px;
+}
+
+.nav-title{
+    text-align: center;
+    font-size: 45px; 
+   border-bottom: 1px black thick;  
+}
+
+.nav-content{
+    display: block;
+}
+
+.nav-btn{
+    margin-left: 105px;
+    margin-top: 50px;
+    display: block;
+}
+
+.settings-content{   
+    margin-left: 105px;
+}
+
+.settings-title{
+    margin-top: 65px;
+    font-size: 30px;
+}
+
+.nav-footer{
+    margin-top: 65px;
+    background-color: rgb(128, 164, 192);
+    height: 90px;
+}
