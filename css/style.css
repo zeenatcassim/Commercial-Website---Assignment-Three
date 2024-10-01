@@ -3,6 +3,8 @@
     src: url('/Commercial-Website---Assignment-Three/Roboto_Flex/static/RobotoFlex-Regular.ttf');
 }
 
+/*Media queries*/
+
 html{
     font-family: 'customFont', sans-serif;
 }
