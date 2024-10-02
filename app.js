@@ -1,40 +1,5 @@
 
-//setup svg
-let WIDTH = 800, HEIGHT = 600, PADDING = 40;
 
-let svg = d3.select(".line-graph")
-.attr("width", WIDTH)
-.attr("height", HEIGHT);
-
-//domain - input data to visualize - rates 
-//range - space where I want to display the data - height and weight of graph
-//need minRate and maxRate values
-
-const yScale = d3.scaleLinear().range([HEIGHT, 0]);
-
-const xScale = d3.scaleLinear().range([0, WIDTH]);
-
-function appendLines(rates){
-   
-    svg.selectAll("path").remove();
-
-    //We want to update the data whenever the API is requested or data has been fetched
-    yScale.domain([d3.min(rates), d3.max(rates)]);
-    xScale.domain([0, rates.length - 1]);
-
-    console.log(`Y Scale Domain: ${yScale.domain()}`);
-    console.log(`X Scale Domain: ${xScale.domain()}`);
-
-    const line = d3.line().x((d,i) => xScale(i)).y(d => yScale(d));
-
-   svg.append("path")
-      .datum(rates)
-      .attr("fill", "none")
-      .attr("stroke", "steelblue")
-      .attr("stroke-width", 2)
-      .attr("d", line);
-   
-}
 //API
 /*
 const url = 'http://data.fixer.io/api/latest?access_key=803afba4fdd8cdacc37ab017860c99dd';
@@ -45,13 +10,16 @@ const options = {
 fetch(url, options)
 .then((response) => response.json())
 .then((data) => {
-    const rates = Object.values(data.rates); 
+    
+    const rates = data.rates;
     console.log(rates);
 
-   //call the function - create lines for graph
-    appendLines(rates);
+    //transforming rates into the correct format 
+    const formattedData = Object.entries(rates).map(([country, rate]) => ({country,rate}));
 
-   // const rates = data.rates;
+   //call the function - create graph
+   createBarGraph(formattedData);
+
    // const dates = data.dates;
    // const base = data.base;
 
@@ -61,11 +29,54 @@ fetch(url, options)
     console.log("There is something wrong!", error);
 })*/
 
+function createBarGraph(rates){
+    const margin = {top: 20, right: 30, bottom: 40, left: 40};
+    const width = 800 - margin.left - margin.right;
+    const height = 400 - margin.top - margin.bottom;
 
+    //creating the svg
+    const svg = d3.select("svg")
+                   .append("g")
+                   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+   //setting up the scales
+   const x = d3.scaleBand()
+            .domain(rates.map(d => d.country))
+            .range([0, width])
+            .padding(0.1);
+
+    const y = d3.scaleLinear()
+                .domain([0, d3.max(rates, d => d.rate)])
+                .nice()
+                .range([height, 0]);
+
+    //Creating the x-axis
+     svg.append("g")
+         .attr("class", "x-axis")
+         .attr("transform", `translate(0, ${height})`)
+         .call(d3.axisBottom(x));
+
+    //Creating the y-axis
+    svg.append("g")
+       .attr("class", "y-axis")
+       .call(d3.axisLeft(y));
+
+    //Creating the bars
+    svg.selectAll(".bar")
+       .data(rates)
+       .enter().append("rect")
+       .attr("class", "bar")
+       .attr("x", d => x(d.country))
+       .attr("y", d => y(d.rate))
+       .attr("width", x.bandwidth())
+       .attr("height", d => height - y(d.rate));
+}
+
+//Fix y-axis - values scale
+//Text on x-axis
+//Interactivity
 
 //Navigation
-
 
 /*const essayBtn = document.getElementById("goToEssayBtn");
 if(essayBtn){
