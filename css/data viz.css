@@ -13,3 +13,14 @@
 .axis--y path {
  display: none;
 }
+
+.tooltip {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;  /* Disable interaction with the tooltip itself */
+    transition: opacity 0.3s ease;
+}

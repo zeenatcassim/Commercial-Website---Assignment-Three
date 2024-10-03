@@ -13,48 +13,68 @@ fetch(url, options)
     
     const rates = data.rates;
     console.log(rates);
-
-    //transforming rates into the correct format 
-    const formattedData = Object.entries(rates).map(([country, rate]) => ({country,rate}));
+    const ratesArray = convertRatesToArray(rates);
 
    //call the function - create graph
-   createBarGraph(formattedData);
+   createBarGraph(ratesArray, 'EUR');
 
    // const dates = data.dates;
    // const base = data.base;
+  //transforming rates into the correct format 
+    //const formattedData = Object.entries(rates).map(([country, rate]) => ({country,rate}));
 
    
 })
 .catch((error) => {
     console.log("There is something wrong!", error);
-})*/
+})
 
-function createBarGraph(rates){
-    const margin = {top: 20, right: 30, bottom: 40, left: 40};
-    const width = 800 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+function convertRatesToArray(rates){
+return Object.entries(rates).map(([country, rate]) => ({
+    country: country,
+    rate: rate
+    }));
+}
+*/
+
+function createBarGraph(rates, baseCurrency = 'EUR'){
+    const margin = {top: 20, right: 30, bottom: 60, left: 100};
+    const width = 1200 - margin.left - margin.right;
+    const height = 500 - margin.top - margin.bottom;
+
+   //rate of base currency 
+   const baseRate = rates.find(d => d.country === baseCurrency)?.rate || 1;
+
+   const relativeRates = rates.map(d => ({
+    country: d.country,
+    rate: d.rate / baseRate
+   }));
+
+   //there are negative values in the data so we need to filer the data for any rates that are invalid; 0 or negative
+   const filteredRates = relativeRates.filter(d => d.rate > 0);
 
     //creating the svg
     const svg = d3.select("svg")
+                   .attr("width", width + margin.left + margin.right)
+                   .attr("height", height + margin.top + margin.bottom)
                    .append("g")
                    .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
    //setting up the scales
    const x = d3.scaleBand()
-            .domain(rates.map(d => d.country))
-            .range([0, width])
-            .padding(0.1);
+            .domain([0, d3.max(filteredRates, d => d.rate)])
+            .range([0, width]);
 
-    const y = d3.scaleLinear()
-                .domain([0, d3.max(rates, d => d.rate)])
-                .nice()
-                .range([height, 0]);
+    const y = d3.scaleLog()
+                .domain([0.01, d3.max(filteredRates, d => d.rate)])
+                .range([0, height])
+                .padding(0.2);
 
     //Creating the x-axis
      svg.append("g")
          .attr("class", "x-axis")
          .attr("transform", `translate(0, ${height})`)
-         .call(d3.axisBottom(x));
+         .call(d3.axisBottom(x).ticks(10));
 
     //Creating the y-axis
     svg.append("g")
@@ -63,17 +83,37 @@ function createBarGraph(rates){
 
     //Creating the bars
     svg.selectAll(".bar")
-       .data(rates)
+       .data(filteredRates)
        .enter().append("rect")
        .attr("class", "bar")
-       .attr("x", d => x(d.country))
-       .attr("y", d => y(d.rate))
-       .attr("width", x.bandwidth())
-       .attr("height", d => height - y(d.rate));
+       .attr("y", d => y(d.country))
+       .attr("x", 0)
+       .attr("height", y.bandwidth())
+       .attr("width", d => x(d.rate));
+
+       svg.append("text")
+          .attr("x", width / 2)
+          .attr("y", height + margin.bottom -10)
+          .attr("text-anchor", "middle")
+          .style("font-size", "22px")
+          .text(`Currency rates compared to ${baseCurrency}`);
+       
+    const tooltip = d3.select(".tooltip");
+
+    svg.selectAll(".bar")
+       .on("mouseover", function(event, d) {
+       tooltip.style("opacity", 1)
+              .html(`Country: ${d.country}<br>Rate: ${d.rate.toFixed(4)}`)
+              .style("left", `${event.pageX + 5}px`)
+              .style("top", `${event.pageY - 28}px`);
+   })
+   .on("mouseout", function() {
+    tooltip.style("opacity", 0);
+});
 }
 
-//Fix y-axis - values scale
-//Text on x-axis
+//More space between bars and country names
+//
 //Interactivity
 
 //Navigation
