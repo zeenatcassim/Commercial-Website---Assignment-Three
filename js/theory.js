@@ -14,3 +14,9 @@ closeBtn.addEventListener("click", function(){
 openBtn.addEventListener("click", function(){
     sideBar.classList.add("show-sidebar"); 
 })
+
+//Essay
+
+const essay =[
+    {}
+]

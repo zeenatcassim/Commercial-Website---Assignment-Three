@@ -2,7 +2,7 @@
 
 //API
 /*
-const url = 'http://data.fixer.io/api/latest?access_key=803afba4fdd8cdacc37ab017860c99dd';
+const url = 'https://data.fixer.io/api/latest?access_key=803afba4fdd8cdacc37ab017860c99dd';
 const options = {
     method: 'GET'
 };
@@ -12,7 +12,7 @@ fetch(url, options)
 .then((data) => {
     
     const rates = data.rates;
-    console.log(rates);
+    //console.log(rates);
     const ratesArray = convertRatesToArray(rates);
 
    //call the function - create graph
@@ -38,8 +38,8 @@ return Object.entries(rates).map(([country, rate]) => ({
 */
 
 function createBarGraph(rates, baseCurrency = 'EUR'){
-    const margin = {top: 20, right: 30, bottom: 60, left: 100};
-    const width = 1200 - margin.left - margin.right;
+    const margin = {top: 20, right: 30, bottom: 100, left: 100};
+    const width = 1500 - margin.left - margin.right;
     const height = 500 - margin.top - margin.bottom;
 
    //rate of base currency 
@@ -62,34 +62,50 @@ function createBarGraph(rates, baseCurrency = 'EUR'){
 
    //setting up the scales
    const x = d3.scaleBand()
-            .domain([0, d3.max(filteredRates, d => d.rate)])
-            .range([0, width]);
+            .domain(filteredRates.map(d => d.country))
+            .range([0, width])
+            .padding(0.5)
+            .paddingInner(0.4);
 
     const y = d3.scaleLog()
-                .domain([0.01, d3.max(filteredRates, d => d.rate)])
-                .range([0, height])
-                .padding(0.2);
+                .domain([0.1, d3.max(filteredRates, d => d.rate)])
+                .range([ height, 0])
+                .clamp(true);
+    
+    const customTickValues = [0.1, 1, 10, 100, 1000, 10000, 100000, 1000000, 2000000, 4000000];
 
     //Creating the x-axis
-     svg.append("g")
-         .attr("class", "x-axis")
-         .attr("transform", `translate(0, ${height})`)
-         .call(d3.axisBottom(x).ticks(10));
+     const xAxis = svg.append("g")
+                      .attr("class", "x-axis")
+                      .attr("transform", `translate(0, ${height})`)
+                     .call(d3.axisBottom(x));
+
+    xAxis.selectAll("text")
+        .attr("transform", "rotate(-45)")
+        .attr("text-anchor", "end")
+        .attr("dx", "-1.5em")
+        .attr("dy", "1em")
+        .filter((d, i) => i % 2 !== 0) // Hide every second label
+        .remove();
 
     //Creating the y-axis
+    const yAxis = d3.axisLeft(y)
+                     .tickValues(customTickValues)
+                     .tickFormat(d => d.toFixed(1));
+
     svg.append("g")
        .attr("class", "y-axis")
-       .call(d3.axisLeft(y));
+       .call(yAxis);
 
     //Creating the bars
     svg.selectAll(".bar")
        .data(filteredRates)
        .enter().append("rect")
        .attr("class", "bar")
-       .attr("y", d => y(d.country))
-       .attr("x", 0)
-       .attr("height", y.bandwidth())
-       .attr("width", d => x(d.rate));
+       .attr("x", d => x(d.country))
+       .attr("y", d => y(d.rate))
+       .attr("width", x.bandwidth())
+       .attr("height", d => height - y(d.rate));
 
        svg.append("text")
           .attr("x", width / 2)
