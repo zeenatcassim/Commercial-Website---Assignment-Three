@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'customFont';
+    src: url('/Commercial-Website---Assignment-Three/Roboto_Flex/static/RobotoFlex-Regular.ttf');
+}
+
+/*Media queries*/
+
+html{
+    font-family: 'customFont', sans-serif;
+}
+
+header{
+    background-color:#294c60;
+}
+
+main{
+    padding: 95px;
+    background-color: #ffefd3;
+}
+
+h1, h2{
+    font-weight: lighter;
+}
+
+.API-one{
+    background-color: #294c60;
+    color: white;
+    padding: 5px;
+    padding-left: 35px;
+
+}

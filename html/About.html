@@ -11,12 +11,59 @@
       content="This is a webpage to inform users more about the Fixer API"
     />
     <meta name="keywords" content="data visualization website" />
+    <link
+      rel="stylesheet"
+      href="/Commercial-Website---Assignment-Three/css/consistent.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/Commercial-Website---Assignment-Three/css/normalize.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/Commercial-Website---Assignment-Three/css/about.css"
+    />
   </head>
   <body>
-    <aside></aside>
+    <aside class="sidebar">
+      <section class="sidebar-header">
+        <h2 class="nav-title">Navigation</h2>
+        <button class="close-btn">Close</button>
+        <nav class="nav-content">
+          <button class="home-btn nav-btn">Homepage</button>
+          <button class="design-btn nav-btn">Design Section</button>
+          <button class="theory-btn nav-btn">Theory Section</button>
+          <button class="data-btn nav-btn">Data Visualization</button>
+        </nav>
+      </section>
+    </aside>
+
     <header>
-      <button class="open-nav">Open Nav</button>
+      <!--svg website logo or add image?-->
+      <svg width="100" height="50">
+        <rect width="100%" height="100%" fill="#294c60"></rect>
+        <text
+          x="45"
+          y="32"
+          font-size="13px"
+          text-anchor="middle"
+          fill="white"
+          stroke="white"
+        >
+          Currency X
+        </text>
+        <filter>
+          <feDropShadow
+            dx="12"
+            dy="10"
+            stdDeviation="1"
+            flood-opcaity="0.75"
+          ></feDropShadow>
+        </filter>
+      </svg>
+      <button class="open-btn">Open Navigation</button>
     </header>
+
     <main>
       <h1>About the API</h1>
       <p>
