@@ -42,7 +42,22 @@
     <header>
       <!--svg website logo or add image?-->
       <svg width="100" height="50">
-        <rect width="100%" height="100%" fill="#adb6c4"></rect>
+        <defs>
+          <filter id="drop-shadow" x="0" y="0" width="150%" height="150%">
+            <feDropShadow
+              dx="12"
+              dy="10"
+              stdDeviation="1"
+              flood-opcaity="0.75"
+            ></feDropShadow>
+          </filter>
+        </defs>
+        <rect
+          width="100%"
+          height="100%"
+          fill="#adb6c4"
+          filter="url(#drop-shadow)"
+        ></rect>
         <text
           x="45"
           y="32"
@@ -53,16 +68,14 @@
         >
           Currency X
         </text>
-        <filter>
-          <feDropShadow
-            dx="12"
-            dy="10"
-            stdDeviation="1"
-            flood-opcaity="0.75"
-          ></feDropShadow>
-        </filter>
       </svg>
-      <button class="open-btn">Open Navigation</button>
+      <button class="open-btn">
+        <svg width="30" height="30">
+          <rect width="30" height="4" fill="black" y="5"></rect>
+          <rect width="30" height="4" fill="black" y="12"></rect>
+          <rect width="30" height="4" fill="black" y="19"></rect>
+        </svg>
+      </button>
     </header>
 
     <main>
@@ -73,42 +86,13 @@
 
       <section class="main-two">
         <h2>Wireframes</h2>
-        <section>
-          <h3>Initial Wireframes</h3>
-          <p>
-            These are the wireframes that I initially made before choosing an
-            API, they are low and mid fidelity
-          </p>
-          <section class="initial-conatiner">
+        <section class="wireframe-container">
+          <h3>Title</h3>
+          <p>content</p>
+          <section class="img-btn-container">
             <button>left</button>
             <img src="" alt="" />
             <button>right</button>
-          </section>
-          <section>
-            <h3>Mid-Fidelity Wireframes</h3>
-            <p>
-              These are the wireframes that I made after choosing an API. I
-              started designing these wireframes to plan content placement and
-              points of interaction.
-            </p>
-            <section class="mid-conatiner">
-              <button>left</button>
-              <img src="" alt="" />
-              <button>right</button>
-            </section>
-          </section>
-          <section>
-            <h3>High-Fidelity Wireframes</h3>
-            <p>
-              Using the mid-fidelity wireframes, I added colour and more
-              specific details to the website. These were aimed to replicate how
-              the website will look for the final design.
-            </p>
-            <section class="final-conatiner">
-              <button>left</button>
-              <img src="" alt="" />
-              <button>right</button>
-            </section>
           </section>
         </section>
       </section>

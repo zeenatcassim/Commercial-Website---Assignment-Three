@@ -23,9 +23,17 @@ h1, h2{
 }
 
 .API-one{
-    background-color: #294c60;
+    background-color: #001b2e;
     color: white;
-    padding: 5px;
+    padding: 10px;
     padding-left: 35px;
 
+}
+
+.API-title{
+    padding: 15px;
+}
+
+.API-info{
+    padding: 15px;
 }
