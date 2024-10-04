@@ -21,9 +21,39 @@ export const apiContent =[
 
 //Design:
 
-export const designContent =[
+export const wireframeSections =[
     {
-        id:1,
-        
+        title: 'Initial Wireframes',
+        paragraph: 'These are the wireframes that I initially made before choosing an API, they are low and mid fidelity.',
+
+    },
+    {
+        title: 'Mid-Fidelity Wireframes',
+        paragraph: 'These are the wireframes that I made after choosing an API. I started designing these wireframes to plan content placement and points of interaction.',
+    },
+    {
+        title: 'High-Fidelity Wireframes',
+        paragraph: 'Using the mid-fidelity wireframes, I added colour and more specific details to the website. These were aimed to replicate how the website will look for the final design.',
+    },
+];
+
+export const wireframeImages =[
+    {
+      image1: '../images/low-img-1.png',
+      image2: '../images/low-img-2.jpg',
+    },
+    {
+      image1: '../images/Desktop - 1 (1).png',
+      image2: '../images/Desktop - 1.png',
+     // image3: '',
+     // image4: '',
+     // image5: '',
+    },
+    {
+        image1: '../images/Desktop - 2.png',
+        image2: '../images/Desktop - 3.png',
+        //image3: '',
+       // image4: '',
+       // image5: '',     
     }
-]
+];
