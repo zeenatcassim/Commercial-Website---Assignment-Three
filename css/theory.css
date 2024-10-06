@@ -11,7 +11,14 @@ html{
 
 /*Media queries*/
 
+header{
+    background-color: #ffefd3;
+}
 
+.open-btn{
+border: none;
+background-color: #ffc49b;
+}
 
 .main-one{
 background-color: #ffc49b;

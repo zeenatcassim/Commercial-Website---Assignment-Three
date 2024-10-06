@@ -265,7 +265,7 @@ window.location.href ="essay.html";
 */
 
 //Sidebar Toggle//
-/*
+
 //references to buttons and sidebar
 const closeBtn = document.querySelector(".close-btn");
 const openBtn = document.querySelector(".open-btn");
@@ -278,4 +278,4 @@ closeBtn.addEventListener("click", function(){
 
 openBtn.addEventListener("click", function(){
     sideBar.classList.add("show-sidebar"); 
-})*/
+})

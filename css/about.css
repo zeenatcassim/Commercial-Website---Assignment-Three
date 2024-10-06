@@ -13,6 +13,10 @@ header{
     background-color:#294c60;
 }
 
+.open-btn{
+    background-color: #ffefd3;
+}
+
 main{
     padding: 95px;
     background-color: #ffefd3;
