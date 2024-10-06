@@ -43,6 +43,37 @@ if (designBtn) {
 
 //Essay
 
-const essay =[
-    {}
-]
+import { essayContents } from "./content.js";
+
+const essayContainer = document.querySelector('.essay-container');
+
+//need to loop through essayContents
+essayContents.forEach(content => {
+    //creating a new section for each part
+    const section = document.createElement('section');
+    section.classList.add('essay-section');
+
+    //creating and adding the title
+    const title = document.createElement('h3');
+    title.textContent = content.title;
+    section.appendChild(title);
+
+    //creating and adding the paragraphs
+    for (let i = 1; i < Object.keys(content).length; i++) {
+        if (content [`p${i}`]) {
+            const paragraph = document.createElement('p');
+            paragraph.textContent = content[`p${i}`];
+            section.appendChild(paragraph);
+        }
+
+      //images
+      if(content[`img${i}`]){
+        const img = document.createElement('img');
+        img.src = content[`img${i}`];
+        section.appendChild(img);
+      }
+    }
+
+    //adding section to essay container
+    essayContainer.appendChild(section);
+});
