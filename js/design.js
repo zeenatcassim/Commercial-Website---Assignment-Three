@@ -1,20 +1,28 @@
 
-//Navigation Bar
-/*const essayBtn = document.getElementById("goToEssayBtn");
-if(essayBtn){
-essayBtn.addEventListener("click", function(){
-window.location.href ="essay.html";
-});    
-}
-*/
-const homeBtn = document.querySelector("home-btn");
+//Navigation
+const aboutBtn = document.querySelector(".about-btn");
+const homeBtn = document.querySelector(".home-btn");
+const theoryBtn = document.querySelector(".theory-btn");
+const dataBtn = document.querySelector(".data-btn");
 
-if(homeBtn){
-  homeBtn.addEventListener("click", function(){
-    window.location.href = "index.html";
-  });
+if (aboutBtn) {
+    aboutBtn.addEventListener("click", function(){
+     window.location.href = "/Commercial-Website---Assignment-Three/html/About.html";
+      })
+} 
+ if (theoryBtn) {
+    theoryBtn.addEventListener("click", function(){
+    window.location.href = "/Commercial-Website---Assignment-Three/html/theory.html"; })
 }
-console.log(homeBtn);
+ if (dataBtn) {
+    dataBtn.addEventListener("click", function(){
+    window.location.href = "/Commercial-Website---Assignment-Three/html/data viz.html";
+    })
+}
+ if (homeBtn) {
+    homeBtn.addEventListener("click", function(){
+    window.location.href = "/Commercial-Website---Assignment-Three/index.html";})
+}
 
 //Sidebar Toggle//
 

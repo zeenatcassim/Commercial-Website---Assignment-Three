@@ -21,8 +21,6 @@ const dataBtn = document.querySelector(".data-btn");
 
 if (designBtn) {
     designBtn.addEventListener("click", function(){
-
-
      window.location.href = "/Commercial-Website---Assignment-Three/html/design.html";
       })
 } 

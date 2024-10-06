@@ -252,17 +252,33 @@ function displayChart(baseAmount, targetAmount){
     // Add y-axis
     g.append('g')
         .call(d3.axisLeft(yScale));
-}
+}*/
 
 //Navigation
 
-/*const essayBtn = document.getElementById("goToEssayBtn");
-if(essayBtn){
-essayBtn.addEventListener("click", function(){
-window.location.href ="essay.html";
-});    
+const aboutBtn = document.querySelector(".about-btn");
+const homeBtn = document.querySelector(".home-btn");
+const theoryBtn = document.querySelector(".theory-btn");
+const designBtn = document.querySelector(".design-btn");
+
+if (aboutBtn) {
+    aboutBtn.addEventListener("click", function(){
+     window.location.href = "/Commercial-Website---Assignment-Three/html/About.html";
+      })
+} 
+ if (theoryBtn) {
+    theoryBtn.addEventListener("click", function(){
+    window.location.href = "/Commercial-Website---Assignment-Three/html/theory.html"; })
 }
-*/
+ if (designBtn) {
+    designBtn.addEventListener("click", function(){
+    window.location.href = "/Commercial-Website---Assignment-Three/html/design.html";
+    })
+}
+ if (homeBtn) {
+    homeBtn.addEventListener("click", function(){
+    window.location.href = "/Commercial-Website---Assignment-Three/index.html";})
+}
 
 //Sidebar Toggle//
 
