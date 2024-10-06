@@ -40,26 +40,28 @@
     </aside>
 
     <header>
-      <!--svg website logo or add image?-->
-      <svg width="100" height="50">
+      <!--svg website logo-->
+      <svg width="120" height="50">
         <defs>
-          <filter id="drop-shadow" x="0" y="0" width="150%" height="150%">
-            <feDropShadow
-              dx="12"
-              dy="10"
-              stdDeviation="1"
-              flood-opcaity="0.75"
-            ></feDropShadow>
+          <filter id="custom-shadow" x="-50%" y="-50%" width="300%" height="300%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/> <!-- Creates a blur effect -->
+            <feOffset in="blur" dx="8" dy="8" result="offsetBlur" /> <!-- Offsets the blur -->
+            <feFlood flood-color="rgba(0, 0, 0, 0.5)" /> <!-- Shadow color -->
+            <feComposite in2="offsetblur" operator="in" />
+            <feMerge>
+              <feMergeNode />
+              <feMergeNode in="SourceGraphic" /> <!-- Merge the shadow with the original graphic -->
+            </feMerge>
           </filter>
         </defs>
         <rect
           width="100%"
           height="100%"
           fill="#adb6c4"
-          filter="url(#drop-shadow)"
+          filter="url(#custom-shadow)"
         ></rect>
         <text
-          x="45"
+          x="50%"
           y="32"
           font-size="13px"
           text-anchor="middle"
@@ -69,6 +71,7 @@
           Currency X
         </text>
       </svg>
+      
       <button class="open-btn">
         <svg width="30" height="30">
           <rect width="30" height="4" fill="black" y="5"></rect>

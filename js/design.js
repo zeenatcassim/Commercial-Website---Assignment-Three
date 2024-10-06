@@ -1,3 +1,37 @@
+
+//Navigation Bar
+/*const essayBtn = document.getElementById("goToEssayBtn");
+if(essayBtn){
+essayBtn.addEventListener("click", function(){
+window.location.href ="essay.html";
+});    
+}
+*/
+const homeBtn = document.querySelector("home-btn");
+
+if(homeBtn){
+  homeBtn.addEventListener("click", function(){
+    window.location.href = "index.html";
+  });
+}
+console.log(homeBtn);
+
+//Sidebar Toggle//
+
+//references to buttons and sidebar
+const closeBtn = document.querySelector(".close-btn");
+const openBtn = document.querySelector(".open-btn");
+const sideBar = document.querySelector(".sidebar");
+
+//functions for the buttons
+closeBtn.addEventListener("click", function(){
+   sideBar.classList.remove("show-sidebar");
+})
+
+openBtn.addEventListener("click", function(){
+    sideBar.classList.add("show-sidebar"); 
+})
+
 //Display wireframes
 
 const wireframeContainer = document.querySelector(".wireframe-container");

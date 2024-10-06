@@ -2,17 +2,22 @@
 Styling for the navigation, header and footer that is consistent for all webpages
 ------*/
 
+@font-face {
+    font-family: 'customFont';
+    src: url('/Commercial-Website---Assignment-Three/Roboto_Flex/static/RobotoFlex-Regular.ttf');
+}
+
 
 /*|||||Sidebar|||||*/
 
 .sidebar{
     position: fixed;
-    top: 73px;
+    top: 0;
     left: 0;
     width: 35%;
     height: 100%;
     transform: translate(-100%);
-    background-color: aliceblue;
+    background-color: #294c60;
     /*transition*/
     z-index: 2;
 }
@@ -38,33 +43,28 @@ Styling for the navigation, header and footer that is consistent for all webpage
 .nav-title{
     text-align: center;
     font-size: 45px; 
-   border-bottom: 1px black thick;  
+    color: white; 
+    font-weight: lighter;
+    padding-top: 65px;
 }
 
 .nav-content{
     display: block;
+    margin-top: 100px;
 }
 
 .nav-btn{
-    margin-left: 105px;
-    margin-top: 50px;
+    margin-left: 65px;
+    margin-top: 5px;
     display: block;
+    width: 75%;
+    height: 55px;
+    border-radius: 5px;
+    border: none;
 }
 
-.settings-content{   
-    margin-left: 105px;
-}
 
-.settings-title{
-    margin-top: 65px;
-    font-size: 30px;
-}
 
-.nav-footer{
-    margin-top: 65px;
-    background-color: rgb(128, 164, 192);
-    height: 90px;
-}
 
 /* |||||header|||||*/
 
@@ -81,6 +81,8 @@ svg{
     position: fixed;
     margin-top: 12px;
     margin-left: 10px;
+    font-family: 'customFont', sans-serif;
+    font-weight: lighter;
 }
 
 /*|||||Footer|||||*/
