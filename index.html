@@ -6,7 +6,11 @@
     <title>Commercial Assignment Assignment Three</title>
     <link
       rel="stylesheet"
-      href="/Commercial-Website---Assignment-Three/css/style.css"
+      href="/Commercial-Website---Assignment-Three/css/homepage.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/Commercial-Website---Assignment-Three/css/consistent.css"
     />
     <link
       rel="stylesheet"
@@ -37,8 +41,38 @@
 
     <!--Header section - nav button and website logo-->
     <header>
-      <!--svg for logo-->
-      <button class="open-btn">Open Navigation</button>
+      <svg width="130" height="40">
+        <defs>
+          <style type="text/css">
+            @font-face {
+              font-family: "customFont";
+              src: url(/Commercial-Website---Assignment-Three/Roboto_Flex/static/RobotoFlex-Regular.ttf)
+                format("truetype");
+            }
+            text {
+              font-family: "customFont", sans-serif;
+            }
+          </style>
+        </defs>
+        <rect width="100%" height="100%" fill="#294c60"></rect>
+        <text
+          x="50%"
+          y="23"
+          font-size="14px"
+          font-weight="bold"
+          text-anchor="middle"
+          fill="white"
+        >
+          Currency X
+        </text>
+      </svg>
+      <button class="open-btn">
+        <svg width="30" height="30">
+          <rect width="30" height="4" fill="white" x="1" y="3"></rect>
+          <rect width="30" height="4" fill="white" x="1" y="10"></rect>
+          <rect width="30" height="4" fill="white" x="1" y="17"></rect>
+        </svg>
+      </button>
     </header>
 
     <!--main content starts here-->
@@ -135,10 +169,11 @@
         <caption class="h-card">
           <p>
             All information on this website belongs to
-            <span class="p-name"> Zeenat Cassim </span>
+            <span class="p-name">
+              Zeenat Cassim. ALL RIGHTS RESERVED. 2024
+            </span>
           </p>
         </caption>
-        <p>ALL RIGHTS RESERVED. 2024</p>
       </section>
     </footer>
 
