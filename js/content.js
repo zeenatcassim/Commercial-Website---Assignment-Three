@@ -60,6 +60,9 @@ export const wireframeImages =[
     }
 ];
 
+//style guide
+
+
 //Theory
 
 export const essayContents = [
@@ -74,25 +77,25 @@ export const essayContents = [
         id:2,
         title:'Data Visualization Techniques:',
         p1:'The data visualization consists of a heatmap but instead of using a table, it uses a map of America to show the values of time for sunrise and sunset for an area. The map separates all the different areas by its counties to give specific values for an area. The counties are all local governments in the different states of America',
-        img1:'',
+        img1:'../images/img 1.png',
         p2:'Figure 1. Data Visualization that uses a heatmap over the region of the United States of America',
         p3:'This is extremely helpful since it gives detailed information about specific areas and the user can search for specific counties or hover over specific points of the map. ',
-        img2:'',
+        img2:'../images/img 2.png',
         p4:'Figure 2. The information that gets displayed when user hovers above the map',
         p5:'Hovering over a point on the map shows the outline of the county, gives the name of it and the percentage of days that have sunrises at/before 7:30 am and sunsets at 5:30 pm along with the times for the recorded latest sunrises and earliest sunsets. ',
         p6:'However, this information changes depending on what filter options the user chooses to view.',
-        img3:'',
+        img3:'../images/img 3.1.png',
         p7:'There is also an option to search for specific counties and find their information.',
-        img4:'',
+        img4:'../images/img 4.png',
         p8:'The map also uses colour saturation between blue and yellow to denote sunrise and sunset. The shift in colour saturation correlates to the amount of daylight. Lighter yellows indicate more hours with daylight; later sunsets and earlier sunrises. Darker blues indicate fewer daylight hours, earlier sunsets and later sunrises. ',
-        img5:'',
+        img5:'../images/img 5.png',
         p9:'Figure 4. The colour saturation system that denotes days that ranges from decreased to  increased hours of daylight', 
         p10:'This is useful because when clicking on a specific option, the data visualization filters the values and shows the user what they want to see. It helps to give detailed information about the area and what time it will be for sunrise and/or sunset according to the filtered time schedules. ',
         p11:'In addition to this is another heatmap that uses a table format, showing the effects of using daylight-saving time permanently throughout the year. Because it uses the same colour saturation system as above, the table allows users to easily understand how daylight distribution is affected under different clock settings.',
-        img6:'',
+        img6:'../images/img 6.png',
         p12:'Figure 5. The Second Data Visualization uses a heatmap in a table format with same colour saturation system',
         p13:'Using heatmaps for this data visualization was a good choice. The decision to use a colour saturation system of yellow and blue to represent the different amounts of daylight visually communicates the distribution of daylight across different clock settings. The format of the map and table presents this data that can be easily understood by the user.',
-        img7:'',
+        img7:'../images/img 7.png',
         p14:'Figure 6. Image showing the entire first data visualization that shows data with specific filter options chosen',
     },
     {
@@ -144,27 +147,24 @@ export const essayContents = [
 
 export const workFlow = [
     {
-        h3: '',
-        p: '',
+        h3: 'Choosing an API',
+        p: 'It took long to find an API. At first I considered using weather or flight ones but did not end up using them because they had big amounts of data and I was not sure how to make data visualizations out of them. I then found the Fixer API, when looking at the data I decided to make a bar graph using the latest endpoint and a conversion chart generator using the convert endpoint from the API.',
     },
     {
-        h3: '',
-        p: '',
+        h3: 'Wireframes',
+        p: 'I first made mid fidelity wireframes without any colour to decide what content goes into which webpage and were to place them. I also planned the HTML and CSS structure along with the content hierarchy and alignment. After this, I was ready to find a colour scheme and to make my high fidelity wireframes. I decided which colours to use for the backgrounds and which to use for buttons or interactive elements. In this stage, I also checked the contrast between the text, interactive elements and background colours',
     },
     {
-        h3: '',
-        p: '',
+        h3: 'HTML and CSS for webpages',
+        p: 'Using the high fidelity wireframes, I added the required HTML tags to communicate the content hierarchy I designed earlier on. I added class and id tags for the HTML tags so that I could use them in the CSS file to style the content',
     },
     {
-        h3: '',
-        p: '',
+        h3: 'JS to add content dynamically',
+        p: 'I made a separate JS file, called content so that all the text for the theory and design webpages can be found in one file instead of having them spread around in different JS files. I imported the required arrays to the JS files specifically handling the functionality on the theory and design webpages and dynamically created new <p> tags and h3 or h4 tags for the text. There were times when I had to introduce a loop to go through all the arrays to display the neccesary information',
     },
     {
-        h3: '',
-        p: '',
+        h3: 'Data Visualizations',
+        p: 'The two data visualizations I made were a bar graph and conversion chart generator. The bar graph is meant to show the current and latest value for up to 170 currency rates from around the world, hovering above the bars makes a tooltip below the graph visible showing the country name and specific rate value. The conversion chart generator was intended to have the user choose the currency they have, type in an amount and then choose the currency they want to convert their money into. The chart displays two bars for the two rates to highlight what the value of their money is in another currency ',
     },
-    {
-        h3: '',
-        p: '',
-    }
+   
 ]

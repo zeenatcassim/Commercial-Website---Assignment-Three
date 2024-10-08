@@ -70,6 +70,19 @@ essayContents.forEach(content => {
       if(content[`img${i}`]){
         const img = document.createElement('img');
         img.src = content[`img${i}`];
+
+        if (i === 1) {
+            img.classList.add('img1');
+        } else if(i === 2){
+           img.classList.add('img2'); 
+        }else if(i === 6){
+            img.classList.add('img6'); 
+         }else if(i === 7){
+            img.classList.add('img7'); 
+         }
+             
+        
+
         section.appendChild(img);
       }
     }

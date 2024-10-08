@@ -5,6 +5,10 @@
 
 /*Media queries*/
 
+@media screen and (400px <= width <= 1000px){
+    
+}
+
 html{
     font-family: 'customFont', sans-serif;
 }
@@ -50,17 +54,31 @@ h1, h2,h3{
 .arrow-btn-img{
     height: 20px;
     width: 20px;
-
+   
 }
 
 .arrow-btn-img-left{
     height: 20px;
     width: 20px;
     transform: rotate(-180deg);
+    
+}
 
+.arrow-btn{
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+   
 }
 
 .dynamic-img{
-   height: 250px;
-   width:300px;
+   height: 713px;
+   width: 996px;
+   border: #001b2e 1px solid;
+}
+
+@media screen and (min-width: 400px) and (max-width:1000px){
+.dynamic-img{
+    height: 250px;
+    width:300px;
+ }
 }

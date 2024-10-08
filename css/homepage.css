@@ -3,13 +3,11 @@
     src: url('/Commercial-Website---Assignment-Three/Roboto_Flex/static/RobotoFlex-Regular.ttf');
 }
 
-/*Media queries*/
-
 html{
     font-family: 'customFont', sans-serif;
 }
 
-/*Media queries*/
+
 
 /* Sidebar*/
 
@@ -122,4 +120,27 @@ h1, h2, h3{
     margin-top: 25px;
     margin-left: 300px;
     margin-bottom: 35px;
+}
+
+/*Media queries*/
+@media screen and (400px <= width <= 1000px){
+    .data-viz-blocks{
+        grid-template-columns: auto;
+    }
+
+   .main-one {
+    padding: 0;
+    margin: 0;
+   }
+
+   .main-two{
+    padding-left: 0;
+   }
+
+   .design-theory-blocks{
+    grid-template-columns: auto;
+   }
+   .api-btn{
+    margin-left: 50px;
+   }
 }
