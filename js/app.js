@@ -7,56 +7,38 @@ const options = {
     method: 'GET'
 };
 
-let ratesArray;
-
 fetch(url, options)
 .then((response) => response.json())
 .then((data) => {
-    
+    //console.log(rates);  
+      
     const rates = data.rates;
-    //console.log(rates);
-    ratesArray = convertRatesToArray(rates);
+
+    const ratesArray = convertRatesToArray(rates);
 
    //call the function - create graph
-   createBarGraph(ratesArray, 'EUR');
-
+   createBarGraph(ratesArray);
    
 })
 .catch((error) => {
     console.log("There is something wrong!", error);
 })
-
-document.getElementById('baseCurrency').addEventListener('change', (event) => {
-    const selectedCurrency = event.target.value;
-    d3.select("svg").selectAll("*").remove();
-    createBarGraph(ratesArray, selectedCurrency);})
-
-function convertRatesToArray(rates){
-  return Object.entries(rates).map(([country, rate]) => ({
-    country: country,
-    rate: rate
-    }));
-}
 */
 
-function createBarGraph(rates, baseCurrency = 'EUR'){
+function convertRatesToArray(rates){
+    return Object.entries(rates).map(([country, rate]) => ({country,rate}));
+}
+
+function createBarGraph(rates){
     const margin = {top: 20, right: 30, bottom: 100, left: 100};
-    const width = 1500 - margin.left - margin.right;
+    const width = 1300 - margin.left - margin.right;
     const height = 500 - margin.top - margin.bottom;
 
-   //rate of base currency 
-   const baseRate = rates.find(d => d.country === baseCurrency)?.rate || 1;
-
-   const relativeRates = rates.map(d => ({
-    country: d.country,
-    rate: d.rate / baseRate
-   }));
-
    //there are negative values in the data so we need to filer the data for any rates that are invalid; 0 or negative
-   const filteredRates = relativeRates.filter(d => d.rate > 0);
+   const filteredRates = rates.filter(d => d.rate > 0);
 
     //creating the svg
-    const svg = d3.select("svg")
+    const svg = d3.select("#bar-graph")
                    .attr("width", width + margin.left + margin.right)
                    .attr("height", height + margin.top + margin.bottom)
                    .append("g")
@@ -114,7 +96,7 @@ function createBarGraph(rates, baseCurrency = 'EUR'){
           .attr("y", height + margin.bottom -10)
           .attr("text-anchor", "middle")
           .style("font-size", "22px")
-          .text(`Currency rates compared to ${baseCurrency}`);
+          .text("Currency Rates");
        
     const tooltip = d3.select(".tooltip");
 
@@ -122,12 +104,12 @@ function createBarGraph(rates, baseCurrency = 'EUR'){
        .on("mouseover", function(event, d) {
        tooltip.style("opacity", 1)
               .html(`Country: ${d.country}<br>Rate: ${d.rate.toFixed(4)}`)
-              .style("left", `${event.pageX + 5}px`)
-              .style("top", `${event.pageY - 28}px`);
+              .style("left", (event.pageX + 5) + "px")
+              .style("top", (event.pageY - 28) + "px");
    })
    .on("mouseout", function() {
     tooltip.style("opacity", 0);
-});
+   });
 }
 
 //Conversion chart - data viz 2
@@ -141,12 +123,6 @@ const optionS = {
 fetch(symbolsURL, optionS)
 .then((response) => response.json())
 .then((data) => {
-    if (data.error) {
-        console.error("API Error:", data.error);
-        return;
-    }
-
-    console.log(data);
 
     const currencies = data.symbols;
 
@@ -179,7 +155,9 @@ fetch(symbolsURL, optionS)
 function convertCurrency(){
   const baseCurrency = document.getElementById('base-currency').value;
   const targetCurrency = document.getElementById('target-currency').value;
-  const amount = document.getElementById('amount').value;
+  const amount = parseFloat(document.getElementById('amount').value);
+
+  //console.log("Base Amount:", baseAmount, "Target Amount:", targetAmount);
 
   if(!amount || amount <= 0){
   alert('Please enter a valid amount');
@@ -198,8 +176,10 @@ function convertCurrency(){
 
     if(data.success){
     const convertedAmount = data.result;
+
     document.getElementById('result').textContent = `Converted Amount: ${convertedAmount.toFixed(2)} ${targetCurrency}`;
     displayChart(amount, convertedAmount);
+
     }
     }).catch(error => {
         console.error("failed to convert currency: ", error);
@@ -216,7 +196,7 @@ function displayChart(baseAmount, targetAmount){
     const svg = d3.select('#chart');
     const width = +svg.attr('width');
     const height = +svg.attr('height');
-    const margin = {top: 20, right: 20, bottom: 30, left: 40};
+    const margin = {top: 0, right: 0, bottom: 0, left: 0};
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
 
@@ -227,22 +207,37 @@ function displayChart(baseAmount, targetAmount){
     .padding(0.2);
     
     const yScale = d3.scaleLinear()
-    .domain([0, Math.max(baseAmount, targetAmount)])
+    .domain([0, Math.max(baseAmount, targetAmount) || 1])
     .range([chartHeight, 0]);
+
+    // Determine color based on the comparison
+    const targetColor = targetAmount > baseAmount ? 'green' : 'red';
 
     const g = svg.append('g')
     .attr('transform', `translate(${margin.left},${margin.top})`);  
 
+    console.log("xScale Base:", xScale("Base"));
+console.log("xScale Target:", xScale("Target"));
+console.log("yScale baseAmount:", yScale(baseAmount));
+console.log("yScale targetAmount:", yScale(targetAmount));
+console.log("Data bound to bars:", [baseAmount, targetAmount]);
+console.log("X axis:", xScale.domain());
+console.log("Y axis:", yScale.domain());
+
+const data = [baseAmount, targetAmount];
+console.log("Data bound to bars:", data);
+
     //bars and target amounts
     g.selectAll('.bar')
         .data([baseAmount, targetAmount])
-        .enter().append('rect')
+        .enter()
+        .append('rect')
         .attr('class', 'bar')
         .attr('x', (d, i) => xScale(i === 0 ? 'Base' : 'Target'))
         .attr('y', d => yScale(d))
         .attr('width', xScale.bandwidth())
         .attr('height', d => chartHeight - yScale(d))
-        .attr('fill', '#69b3a2');
+        .attr('fill', (d, i) => i === 0 ? '#69b3a2' : targetColor);
 
     // Add x-axis
     g.append('g')
@@ -252,8 +247,8 @@ function displayChart(baseAmount, targetAmount){
     // Add y-axis
     g.append('g')
         .call(d3.axisLeft(yScale));
-}*/
-
+}
+*/
 //Navigation
 
 const aboutBtn = document.querySelector(".about-btn");

@@ -34,17 +34,20 @@ header{
 
 .main-one{
    background-color: #2c4251; 
-   padding-bottom: 25px;
+   padding-bottom: 50px;
    padding-left: 165px;
+   padding-right: 165px;
 }
 
 h1, h2, h3{
+   
     font-weight: lighter;
 }
 
 .h1-p{
     color: white;  
-    padding-top: 85px; 
+    padding-top: 85px;
+   
 }
 
 .data-viz-blocks{
@@ -56,11 +59,12 @@ h1, h2, h3{
 
 .data-viz-block-one, .data-viz-block-two {
     margin-bottom: 25px;
-    height: 230px;
+    margin-top: 50px;
+    height: 250px;
     width: 270px;
     background-color: white;
     border-radius: 3px;
-    margin-left: 85px;  
+    padding-left: 165px; 
     padding: 20px;  
 }
 

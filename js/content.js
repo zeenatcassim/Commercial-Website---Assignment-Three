@@ -141,3 +141,30 @@ export const essayContents = [
         p5:'Mailloux, S., 1983. Convention and context. New Literary History, 14(2), pp.399-407.',
     }
 ]
+
+export const workFlow = [
+    {
+        h3: '',
+        p: '',
+    },
+    {
+        h3: '',
+        p: '',
+    },
+    {
+        h3: '',
+        p: '',
+    },
+    {
+        h3: '',
+        p: '',
+    },
+    {
+        h3: '',
+        p: '',
+    },
+    {
+        h3: '',
+        p: '',
+    }
+]

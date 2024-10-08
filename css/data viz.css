@@ -19,14 +19,51 @@ border: none;
 }
 
 .main-one{
-    padding-top: 95px;
     background-color: #adb6c4;
     color: white;
 }
 
 .main-two{
     background-color: #ffefd3;
+   /* margin-top: 50px;
+    padding: 40px;*/
 }
+/*
+main section{
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.main-two section{
+    padding: 20px;
+    margin:0;
+}*/
+
+.graph-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding: 0;
+}
+
+#bar-graph{
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+}
+
+.chart-container{
+    margin-bottom: 50px;
+}
+
+svg #chart{
+    border: 1px solid black;
+    z-index: 2;
+}
+
+
 
 .bar{
     fill: steelblue;
@@ -45,7 +82,7 @@ border: none;
 }
 
 .tooltip {
-    position: absolute;
+    /*position: absolute;*/
     background-color: white;
     border: 1px solid #ccc;
     padding: 8px;
@@ -54,3 +91,22 @@ border: none;
     pointer-events: none;  /* Disable interaction with the tooltip itself */
     transition: opacity 0.3s ease;
 }
+
+#convert-btn{
+   display: block;
+   margin-top: 20px;
+   margin-left: 500px;
+   margin-bottom: 20px;
+   background-color: #001b2e;
+   color: white;
+   padding: 10px;
+   border-radius: 3px;
+   width: 150px;
+}
+
+#result{
+    text-align: center;
+    padding-top: 35px;
+}
+
+

@@ -77,3 +77,20 @@ essayContents.forEach(content => {
     //adding section to essay container
     essayContainer.appendChild(section);
 });
+
+//Workflow
+
+import { workFlow } from "./content.js";
+
+const workflowContainer = document.querySelector('.workflow-container');
+
+workFlow.forEach(item => {
+    const h3 = document.createElement('h3');
+    h3.textContent = item.h3;
+
+    const pElement = document.createElement('p');
+    pElement.textContent = item.p;
+
+    workflowContainer.appendChild(h3);
+    workflowContainer.appendChild(pElement);
+})

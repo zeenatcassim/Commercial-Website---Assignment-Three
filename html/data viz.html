@@ -78,50 +78,48 @@
 
     <main>
       <section class="main-one">
-        <h1>Data Visualizations</h1>
-        <p>Some information here</p>
+        <h1 class="p-title">Data Visualizations</h1>
+        <p class="p-summary">
+          These are the data visualizations for this website. One is a bar graph
+          showing the latest rates, you can hover above the bars to see the
+          exact rate and country name. The other is a currency conversion chart
+          generator that shows your money's value in other currencies
+        </p>
       </section>
 
       <section class="main-two">
         <h1>Bar Graph - Data Viz 1</h1>
-        <section>
-          <label for="baseCurrency">Choose a base currency:</label>
-          <select id="baseCurrency">
-            <option value="EUR">EUR</option>
-            <option value="USD">USD</option>
-            <option value="GBP">GBP</option>
-          </select>
+        <section class="graph-container">
           <!-- Graph data visualisation-->
-          <svg></svg>
+          <svg id="bar-graph"></svg>
           <div class="tooltip"></div>
         </section>
         <!--Conversion data visualisation-->
-        <section>
-          <label for="base-currency">Base Currency:</label>
-          <select id="base-currency"></select>
-
-          <label for="target-currency">Target Currency:</label>
-          <select id="target-currency"></select>
-
-          <label for="amount">Amount:</label>
+        <section class="chart-container">
+          <label for="amount">Enter your amount:</label>
           <input type="number" id="amount" placeholder="Enter amount..." />
 
+          <label for="base-currency">Currency of your choice:</label>
+          <select id="base-currency"></select>
+
+          <label for="target-currency">Currency you want to convert to:</label>
+          <select id="target-currency"></select>
+
           <button id="convert-btn">Convert</button>
+          <svg id="chart"></svg>
           <p id="result">Converted amount:</p>
         </section>
-        <svg id="chart" width="400" height="200"></svg>
       </section>
     </main>
 
     <footer>
       <section class="footer-display">
         <section class="footer-display-one">
-          <h2>Currency X</h2>
-          <!--logo svg-->
+          <h2 class="p-name">Currency X</h2>
         </section>
         <section class="footer-display-two">
           <h4>Find us at:</h4>
-          <p>xx street xx city xx postal code</p>
+          <p class="p-street-address">xx street xx city xx postal code</p>
         </section>
         <section class="footer-display-three">
           <h4>Contact us at:</h4>

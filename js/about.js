@@ -50,8 +50,8 @@ function displayContents(contents){
 let displayContents = contents.map(function(content){
     return`<section class="API-container">
         <section class="API-one">
-        <h2 class="API-title">${content.title}</h2>
-        <p class="API-info">${content.paragraph}</p>
+        <h2 class="API-title p-title">${content.title}</h2>
+        <p class="API-info p-summary">${content.paragraph}</p>
       </section>
     </section>`
 }).join("");
