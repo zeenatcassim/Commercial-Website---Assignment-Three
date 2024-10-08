@@ -46,6 +46,7 @@ const wireframeContainer = document.querySelector(".wireframe-container");
 
 import { wireframeImages } from "./content.js";
 import { wireframeSections } from "./content.js";
+import { styleGuide } from "./content.js";
 
 function addSection(index){
     const section = document.createElement('section');
@@ -74,7 +75,7 @@ function addSection(index){
     `;
     wireframeContainer.appendChild(section);
 
-    //swap images
+    //swap through images
     let currentImageIndex = 0;
     const images = [wireframeImages[index].image1, wireframeImages[index].image2];
 
@@ -96,3 +97,22 @@ function addSection(index){
 for(let i = 0; i < 3; i++){
     addSection(i);
 }
+
+
+  const styleGuideContainer = document.querySelector('.styleguide-container');
+
+function populateStyleGuide(styleGuide){
+  styleGuide.forEach((sectionData, index) => {
+    const container = document.createElement('section');
+    container.classList.add('style-guide-section'); // Use a more specific class if needed
+
+    container.innerHTML = `
+      <h3 class="style-guide-title">${sectionData.h3}</h3>
+      <p class="style-guide-content">${sectionData.p || 'No description available.'}</p>
+       ${index === 1 ? `<img src="${sectionData.img || '/path/to/default-image.png'}" alt="${sectionData.h3} image" class="style-guide-image" />` : ''}
+    `;
+  styleGuideContainer.appendChild(container);
+}
+)}
+
+populateStyleGuide(styleGuide);

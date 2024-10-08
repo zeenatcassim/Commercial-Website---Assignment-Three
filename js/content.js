@@ -61,7 +61,28 @@ export const wireframeImages =[
 ];
 
 //style guide
-
+export const styleGuide = [
+    { h3: 'Typography',
+      p: 'I used the font Roboto flex for the text because it makes the letters thin which is easy on the eyes and good for readability. The font sizes are consistent throughout the webpages since I have not specified them in the CSS, rather I used the size that comes with the h1, h2, h3 and p tags. The only thing I did change was make the headings font lighter because they were looking to think in their default settings.',
+    },
+    {
+        h3:'Colour Palette',
+        img: '../images/colour palette.png',
+        p:'This colour palette has varying shades of dark and light colours. It gives a nice balanced contrast for the content since there are warm colours, like papaya white and cold colours, like charcoal that co exist together. The contrast between all the colours can be used effectively to make interactive elements stand out against the cool and soft backgrounds'
+    },
+    {
+        h3:'Branding(iconography)',
+        p: 'The top left corner of the header has a simple logo that consists of a background accompanied by text. I did not want the header to empty and having a simple logo at this specific location is a good decision since this logo is the first thing the user will see when they click on the website ',
+    },
+    {
+        h3:'Interactive Elements',
+        p:'',
+    },
+    {
+        h3:'Design Decisions',
+        p:'balance, alignment, buttons have consistent shape and colour throughout a webpage'
+    }
+]
 
 //Theory
 

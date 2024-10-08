@@ -76,9 +76,18 @@ h1, h2,h3{
    border: #001b2e 1px solid;
 }
 
+.style-guide-image{
+    height: 150px;
+    border: #001b2e 1px solid;
+}
+
 @media screen and (min-width: 400px) and (max-width:1000px){
 .dynamic-img{
     height: 250px;
     width:300px;
  }
+
+ .style-guide-image{
+    height: 50px;
+}
 }
