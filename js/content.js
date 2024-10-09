@@ -45,18 +45,25 @@ export const wireframeImages =[
       image2: '../images/low-img-2.jpg',
     },
     {
-      image1: '../images/Desktop - 1 (1).png',
-      image2: '../images/Desktop - 1.png',
-     // image3: '',
-     // image4: '',
-     // image5: '',
+      image1: '../images/Mid fidelity wireframes.png',
+      image2: '../images/Mid fidelity wireframes (1).png',
+      image3: '../images/t,d,a (a).png',
+      image4: '../images/t,d,a (b).png',
     },
     {
         image1: '../images/Desktop - 2.png',
         image2: '../images/Desktop - 3.png',
-        //image3: '',
-       // image4: '',
-       // image5: '',     
+        image3: '../images/about-1.png',
+        image4: '../images/about - 2.png',
+        image5: '../images/data viz-1.png',  
+        image6: '../images/data viz-2.png',   
+        image7: '../images/Desktop - 1 (1).png',
+        image8: '../images/Desktop - 1.png',
+        image9: '../images/homepage - 2.png',
+        image10: '../images/homepage - 3.png',
+        image11: '../images/homepage-1 (1).png',
+        image12: '../images/homepage-1.png',
+
     }
 ];
 
