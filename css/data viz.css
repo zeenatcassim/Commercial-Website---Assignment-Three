@@ -24,23 +24,23 @@ border: none;
 .main-one{
     background-color: #adb6c4;
     color: white;
+    padding-left: 165px;
+    padding-right: 165px;
+    padding-bottom: 50px; 
 }
 
 .main-two{
     background-color: #ffefd3;
-   /* margin-top: 50px;
-    padding: 40px;*/
-}
-/*
-main section{
-    margin: 20px 0;
-    padding: 20px;
+    padding-top: 25px;
+   padding-left: 165px;
+    padding-right: 165px;
+    padding-bottom: 50px;
 }
 
-.main-two section{
-    padding: 20px;
-    margin:0;
-}*/
+h1{
+    padding-top: 85px;
+}
+
 
 .graph-container {
     width: 100%;
@@ -58,15 +58,19 @@ main section{
 }
 
 .chart-container{
-    margin-bottom: 50px;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    padding: 0;
 }
 
-svg #chart{
-    border: 1px solid black;
-    z-index: 2;
+#chart{
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 0;   
 }
-
-
 
 .bar{
     fill: steelblue;
