@@ -196,9 +196,13 @@ function displayChart(baseAmount, targetAmount){
     const svg = d3.select('#chart');
     const width = +svg.attr('width');
     const height = +svg.attr('height');
-    const margin = {top: 0, right: 0, bottom: 0, left: 0};
+
+    const margin = {top: 20, right: 30, bottom: 40, left: 40};
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
+
+    const g = svg.append('g')
+                 .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
     //creating the scales
     const xScale = d3.scaleBand()
@@ -207,36 +211,27 @@ function displayChart(baseAmount, targetAmount){
     .padding(0.2);
     
     const yScale = d3.scaleLinear()
-    .domain([0, Math.max(baseAmount, targetAmount) || 1])
+    .domain([0, Math.max(baseAmount, targetAmount)])
     .range([chartHeight, 0]);
 
     // Determine color based on the comparison
     const targetColor = targetAmount > baseAmount ? 'green' : 'red';
 
-    const g = svg.append('g')
-    .attr('transform', `translate(${margin.left},${margin.top})`);  
-
-    console.log("xScale Base:", xScale("Base"));
-console.log("xScale Target:", xScale("Target"));
-console.log("yScale baseAmount:", yScale(baseAmount));
-console.log("yScale targetAmount:", yScale(targetAmount));
-console.log("Data bound to bars:", [baseAmount, targetAmount]);
-console.log("X axis:", xScale.domain());
-console.log("Y axis:", yScale.domain());
-
-const data = [baseAmount, targetAmount];
-console.log("Data bound to bars:", data);
+    const data = [{ category: 'Base' , amount: baseAmount}, 
+    {category: 'Target', amount: targetAmount}
+    ];
+    console.log("Data bound to bars:", data);
 
     //bars and target amounts
     g.selectAll('.bar')
-        .data([baseAmount, targetAmount])
+        .data(data)
         .enter()
         .append('rect')
         .attr('class', 'bar')
-        .attr('x', (d, i) => xScale(i === 0 ? 'Base' : 'Target'))
-        .attr('y', d => yScale(d))
+        .attr('x', d => xScale(d.category))
+        .attr('y', d => yScale(d.amount))
         .attr('width', xScale.bandwidth())
-        .attr('height', d => chartHeight - yScale(d))
+        .attr('height', d => chartHeight - yScale(d.amount))
         .attr('fill', (d, i) => i === 0 ? '#69b3a2' : targetColor);
 
     // Add x-axis
@@ -247,8 +242,8 @@ console.log("Data bound to bars:", data);
     // Add y-axis
     g.append('g')
         .call(d3.axisLeft(yScale));
-}
-*/
+}*/
+
 //Navigation
 
 const aboutBtn = document.querySelector(".about-btn");
