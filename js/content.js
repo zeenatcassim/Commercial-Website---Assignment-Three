@@ -76,11 +76,11 @@ export const styleGuide = [
     },
     {
         h3:'Interactive Elements',
-        p:'',
+        p:'Buttons have one consistent design on the same webpage, this to indicate to the user that this is interactable and to establish a convention.',
     },
     {
         h3:'Design Decisions',
-        p:'balance, alignment, buttons have consistent shape and colour throughout a webpage'
+        p:'I have tried to balance the content by using the same padding throughout the webpages and all content is aligned to the left, since that is where the user will start reading. My aim was to make it easy for the user to follow along the content. However, all buttons are centred towards the middle of the relevant section they are part of. This is different because having a button towards the middle of that specific section will make the user realise that this button is related to the above section. '
     }
 ]
 
