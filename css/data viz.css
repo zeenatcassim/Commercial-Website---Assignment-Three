@@ -74,6 +74,7 @@ h1{
 
 .bar{
     fill: steelblue;
+    transition: fill 0.3s ease;
 }
 
 .bar:hover{
@@ -116,4 +117,22 @@ h1{
     padding-top: 35px;
 }
 
+.data2-bars{
+    transition: fill 0.3s ease;
+}
+
+@media screen and (min-width: 400px) and (max-width:1000px){
+    .main-two{
+        padding: 0;
+    }
+
+  .graph-container{
+    left: 0;
+  }
+  
+  .data2-bars{
+    width: 10px;
+  }
+   
+}
 

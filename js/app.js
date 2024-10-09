@@ -1,7 +1,7 @@
 //Bar graph - data viz 1
 
 //API
-/*
+
 const url = 'https://data.fixer.io/api/latest?access_key=803afba4fdd8cdacc37ab017860c99dd';
 const options = {
     method: 'GET'
@@ -23,7 +23,7 @@ fetch(url, options)
 .catch((error) => {
     console.log("There is something wrong!", error);
 })
-*/
+
 
 function convertRatesToArray(rates){
     return Object.entries(rates).map(([country, rate]) => ({country,rate}));
@@ -113,7 +113,7 @@ function createBarGraph(rates){
 }
 
 //Conversion chart - data viz 2
-/*
+
 const symbolsURL = 'https://data.fixer.io/api/symbols?access_key=803afba4fdd8cdacc37ab017860c99dd';
 
 const optionS = {
@@ -220,14 +220,14 @@ function displayChart(baseAmount, targetAmount){
     const data = [{ category: 'Base' , amount: baseAmount}, 
     {category: 'Target', amount: targetAmount}
     ];
-    console.log("Data bound to bars:", data);
+    
 
     //bars and target amounts
     g.selectAll('.bar')
         .data(data)
         .enter()
         .append('rect')
-        .attr('class', 'bar')
+        .attr('class', 'data2-bars')
         .attr('x', d => xScale(d.category))
         .attr('y', d => yScale(d.amount))
         .attr('width', xScale.bandwidth())
@@ -242,7 +242,7 @@ function displayChart(baseAmount, targetAmount){
     // Add y-axis
     g.append('g')
         .call(d3.axisLeft(yScale));
-}*/
+}
 
 //Navigation
 
