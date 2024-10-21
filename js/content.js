@@ -35,6 +35,9 @@ export const wireframeSections =[
     {
         title: 'High-Fidelity Wireframes',
         paragraph: 'Using the mid-fidelity wireframes, I added colour and more specific details to the website. These were aimed to replicate how the website will look for the final design.',
+    },{
+        title: 'High-Fidelity Wireframes for Exam',
+        paragraph: 'This are the new chnages I made using the feedback from Assignment Three',
     },
 ];
 
@@ -55,15 +58,16 @@ export const wireframeImages =[
         image1: '../images/High Fidelity Wireframes.png',
         image2: '../images/High Fidelity Wireframes (1).png',
         image3: '../images/High Fidelity Wireframes (2).png',
-        image4: '../images/about - 2.png',
-        image5: '../images/data viz-1.png',  
-        image6: '../images/data viz-2.png',   
-        image7: '../images/Desktop - 1 (1).png',
-        image8: '../images/Desktop - 1.png',
-        image9: '../images/homepage - 2.png',
-        image10: '../images/homepage - 3.png',
-        image11: '../images/homepage-1 (1).png',
-        image12: '../images/homepage-1.png',
+        image4: '../images/High Fidelity Wireframes (3).png',
+        image5: '../images/High Fidelity Wireframes (4).png',  
+        image6: '../images/High Fidelity Wireframes (5).png',   
+        image7: '../images/High Fidelity Wireframes (6).png',
+        image8: '../images/High Fidelity Wireframes (7).png',
+        image9: '../images/High Fidelity Wireframes (8).png',
+        image10: '../images/High Fidelity Wireframes (9).png',
+        image11: '../images/High Fidelity Wireframes (10).png',
+        image12: '../images/High Fidelity Wireframes (11).png',
+        image13: '../images/High Fidelity Wireframes (12).png',
 
     }
 ];
