@@ -77,20 +77,25 @@ function addSection(index){
 
     //swap through images
     let currentImageIndex = 0;
-    const images = [wireframeImages[index].image1, wireframeImages[index].image2];
+    const images = Object.values(wireframeImages[index]);
 
     const leftBtn = section.querySelector('.left-btn');
     const rightBtn = section.querySelector('.right-btn');
+
     const imgElement = section.querySelector('.dynamic-img');
    
     leftBtn.addEventListener('click', () => {
         currentImageIndex = (currentImageIndex === 0) ? images.length - 1 : currentImageIndex - 1;
         imgElement.src = images[currentImageIndex];
+
+        console.log(currentImageIndex);
       });
     
       rightBtn.addEventListener('click', () => {
         currentImageIndex = (currentImageIndex + 1) % images.length;
         imgElement.src = images[currentImageIndex];
+
+        console.log(currentImageIndex);
       });
 }
 
@@ -99,7 +104,7 @@ for(let i = 0; i < 3; i++){
 }
 
 
-  const styleGuideContainer = document.querySelector('.styleguide-container');
+const styleGuideContainer = document.querySelector('.styleguide-container');
 
 function populateStyleGuide(styleGuide){
   styleGuide.forEach((sectionData, index) => {
